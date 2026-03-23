@@ -7,83 +7,70 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green:#1B7F4C;--green-light:#22C55E;--green-glow:rgba(34,197,94,0.12);
-    --gold:#D97706;--gold-light:#F59E0B;--gold-glow:rgba(245,158,11,0.1);
-    --blue:#1D4ED8;--blue-light:#3B82F6;--blue-glow:rgba(59,130,246,0.1);
-    --red:#DC2626;--red-light:#EF4444;--purple:#7C3AED;--purple-light:#8B5CF6;
-    --bg:#0A0F0A;--bg2:#111811;--bg3:#1A221A;
-    --border:rgba(255,255,255,0.07);--border-green:rgba(34,197,94,0.2);
+    --green:#1B7F4C;--green-light:#22C55E;--bg:#0A0F0A;--bg2:#111811;
     --text:#F0F0F0;--text-dim:#888;--text-faint:#444;
     --font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:var(--bg2);flex-wrap:wrap;}
+  .nav-links{display:flex;gap:16px;flex-wrap:wrap;}
+  .nav-link{cursor:pointer;}
+  .nav-cta{padding:8px 16px;background:var(--green-light);border:none;border-radius:6px;color:#fff;cursor:pointer;}
+  header{padding:40px 32px;text-align:center;}
+  header h1{font-family:var(--font-head);font-size:2rem;margin-bottom:16px;}
+  header p{color:var(--text-dim);}
+  .modules, .contact{max-width:1100px;margin:32px auto;padding:0 16px;display:grid;gap:16px;}
+  .modules div, .contact div{background:var(--bg2);padding:16px;border-radius:8px;}
+  .contact a{text-decoration:none;color:var(--text);}
+  footer{background:var(--bg2);padding:24px 32px;text-align:center;font-size:12px;color:var(--text-dim);}
+  @media(max-width:768px){.nav-links{flex-direction:column;gap:8px;}}
 </style>
 </head>
 <body>
 
-<!-- TOP NAV -->
-<nav class="topnav">
-  <div class="nav-logo" onclick="goSection('accueil')">
-    <div class="nav-logo-icon">🇸🇳</div>
-    <div class="nav-logo-text">PME Sénégal Club</div>
-  </div>
+<!-- NAVIGATION -->
+<nav>
+  <div style="font-family:var(--font-head);font-weight:700;">🇸🇳 PME Sénégal Club</div>
   <div class="nav-links">
-    <div class="nav-link active" id="nav-accueil" onclick="goSection('accueil')">🏠 Accueil</div>
-    <div class="nav-link" id="nav-assistant" onclick="goSection('assistant')">📋 Assistant AO</div>
-    <div class="nav-link" id="nav-formations" onclick="goSection('formations')">📚 Formations</div>
-    <div class="nav-link" id="nav-concours" onclick="goSection('concours')">🌍 Concours Intl</div>
-    <div class="nav-link" id="nav-businessplan" onclick="goSection('businessplan')">💼 Business Plan</div>
-    <div class="nav-link" id="nav-communaute" onclick="goSection('communaute')">💬 Communauté</div>
-    <div class="nav-link" id="nav-membres" onclick="goSection('membres')">👥 Membres</div>
-    <div class="nav-link" id="nav-tarifs" onclick="goSection('tarifs')">💎 Tarifs</div>
+    <div class="nav-link" onclick="window.scrollTo(0,0)">🏠 Accueil</div>
+    <div class="nav-link" onclick="window.scrollTo(0,500)">📋 Assistant AO</div>
+    <div class="nav-link" onclick="window.scrollTo(0,1000)">📚 Formations</div>
+    <div class="nav-link" onclick="window.scrollTo(0,1500)">🌍 Concours Intl</div>
+    <div class="nav-link" onclick="window.scrollTo(0,2000)">💼 Business Plan</div>
+    <div class="nav-link" onclick="window.scrollTo(0,2500)">💬 Communauté</div>
   </div>
-  <button class="nav-cta" onclick="window.location.href='https://etiinfosba-hue.github.io/-pme-senegal-club/'">
-    🚀 Rejoindre gratuitement
-  </button>
+  <button class="nav-cta" onclick="window.location.href='https://etiinfosba-hue.github.io/-pme-senegal-club/'">🚀 Rejoindre la plateforme</button>
 </nav>
 
+<!-- HEADER -->
+<header>
+  <h1>Bienvenue sur PME Sénégal Club</h1>
+  <p>La plateforme qui aide les PME sénégalaises à gagner des marchés, obtenir des financements et accéder aux concours internationaux.</p>
+  <button class="nav-cta" onclick="window.location.href='https://etiinfosba-hue.github.io/-pme-senegal-club/'" style="margin-top:16px;">🚀 Rejoindre la plateforme</button>
+</header>
+
+<!-- MODULES -->
+<section class="modules">
+  <div>📋 Assistant Appels d'Offres</div>
+  <div>🌍 Concours Internationaux</div>
+  <div>💼 Business Plan Bancable</div>
+  <div>📚 Formations</div>
+  <div>💬 Communauté Slack</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div>
+    <strong>Contact</strong><br>
+    💬 <a href="https://wa.me/221775485985" target="_blank">+221 77 548 59 85 (WhatsApp)</a><br>
+    📧 <a href="mailto:eti.infosba@gmail.com">eti.infosba@gmail.com</a>
+  </div>
+</section>
+
 <!-- FOOTER -->
-<footer style="background:var(--bg2);border-top:1px solid var(--border);padding:24px 32px">
-  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;align-items:start">
-    <div>
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-        <div style="width:28px;height:28px;background:linear-gradient(135deg,#1B7F4C,#22C55E);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px">🇸🇳</div>
-        <div style="font-family:var(--font-head);font-size:13px;font-weight:800">PME Sénégal Club</div>
-      </div>
-      <div style="font-size:12px;color:var(--text-dim);line-height:1.7">La plateforme qui aide les PME sénégalaises à gagner des marchés, obtenir des financements et accéder aux concours internationaux.</div>
-    </div>
-    <div>
-      <div style="font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--text-faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">Modules</div>
-      <div style="display:flex;flex-direction:column;gap:5px">
-        <span style="font-size:12px;color:var(--text-dim);cursor:pointer" onclick="goSection('assistant')">📋 Assistant Appels d'Offres</span>
-        <span style="font-size:12px;color:var(--text-dim);cursor:pointer" onclick="goSection('concours')">🌍 Concours Internationaux</span>
-        <span style="font-size:12px;color:var(--text-dim);cursor:pointer" onclick="goSection('businessplan')">💼 Business Plan Bancable</span>
-        <span style="font-size:12px;color:var(--text-dim);cursor:pointer" onclick="goSection('formations')">📚 Formations</span>
-        <span style="font-size:12px;color:var(--text-dim);cursor:pointer" onclick="goSection('communaute')">💬 Communauté Slack</span>
-      </div>
-    </div>
-    <div>
-      <div style="font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--text-faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">Contact</div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <a href="https://wa.me/221775485985" target="_blank" style="display:flex;align-items:center;gap:8px;text-decoration:none">
-          <div style="width:28px;height:28px;background:rgba(34,197,94,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px">💬</div>
-          <div><div style="font-size:12px;color:var(--green-light);font-weight:500">+221 77 548 59 85</div><div style="font-size:10px;color:var(--text-faint)">WhatsApp — Réponse rapide</div></div>
-        </a>
-        <a href="mailto:eti.infosba@gmail.com" style="display:flex;align-items:center;gap:8px;text-decoration:none">
-          <div style="width:28px;height:28px;background:rgba(59,130,246,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px">📧</div>
-          <div><div style="font-size:12px;color:var(--blue-light);font-weight:500">eti.infosba@gmail.com</div><div style="font-size:10px;color:var(--text-faint)">Email — Réponse sous 24h</div></div>
-        </a>
-        <!-- Bouton corrigé pour rejoindre la plateforme directement -->
-        <a href="https://etiinfosba-hue.github.io/-pme-senegal-club/" target="_blank" style="margin-top:4px;display:block">
-          <button style="width:100%;padding:9px;background:var(--green-light);color:#fff;border-radius:8px;border:none;font-family:var(--font-head);font-size:12px;font-weight:700;cursor:pointer">🚀 Rejoindre gratuitement</button>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div style="max-width:1100px;margin:16px auto 0;padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div style="font-size:11px;color:var(--text-faint)">© 2026 PME Sénégal Club · Dakar, Sénégal</div>
-    <div style="font-size:11px;color:var(--text-faint)">✅ Paiement Wave & Orange Money · Adhésion gratuite · Annulable à tout moment</div>
-  </div>
+<footer>
+© 2026 PME Sénégal Club · Dakar, Sénégal · Adhésion gratuite · Annulable à tout moment
 </footer>
 
 </body>
