@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -17,7 +16,7 @@ nav{background:white;padding:15px 5%;display:flex;justify-content:space-between;
 .page-section{display:none;padding:50px 5%;min-height:90vh;}
 .page-section.active{display:block;animation:fadeIn 0.4s ease-in;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-.hero{text-align:center;padding:80px 20px;background:linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.9)), url('assets/images/hero.jpg') center/cover;color:white;border-radius:0 0 40px 40px;}
+.hero{text-align:center;padding:80px 20px;background:linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url('https://via.placeholder.com/1200x600.png?text=Hero+Image') center/cover;color:white;border-radius:0 0 40px 40px;}
 .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:30px;}
 .price-card{background:white;padding:35px;border-radius:20px;text-align:center;border:1px solid #e2e8f0;}
 .price-card.featured{border:3px solid var(--gold);transform:scale(1.02);}
@@ -59,9 +58,9 @@ nav{background:white;padding:15px 5%;display:flex;justify-content:space-between;
 <button onclick="selectPlan('Starter', '45.000 FCFA')" class="btn btn-primary">S'inscrire</button>
 </div>
 <div class="price-card featured">
-<h3>Expert Business DAO</h3>
+<h3>Expert DAO</h3>
 <div class="amount">150.000 FCFA</div>
-<button onclick="selectPlan('Business DAO', '150.000 FCFA')" class="btn btn-gold">Devenir Expert</button>
+<button onclick="selectPlan('Expert DAO', '150.000 FCFA')" class="btn btn-gold">Devenir Expert</button>
 </div>
 </div>
 </section>
@@ -91,7 +90,7 @@ nav{background:white;padding:15px 5%;display:flex;justify-content:space-between;
 <div id="chat-widget">
 <div class="chat-header"><span>Mame Yo Cissé | Directrice AIA</span></div>
 <div class="chat-body" id="chatBox">
-<div class="chat-msg msg-ai">Salam ! Je suis Mame Yo Cissé, adjointe de AIA SÉNÉGAL. Prêt à automatiser votre avenir ? Voulez-vous voir le programme ou nos tarifs d'inscription ?</div>
+<div class="chat-msg msg-ai">Salam ! Je suis Mame Yo Cissé, adjointe de AIA SÉNÉGAL. Prêt à automatiser votre avenir ? Tapez "programme" pour voir les modules ou "tarif" pour connaître les tarifs.</div>
 </div>
 <form class="chat-footer" onsubmit="event.preventDefault(); handleChat();">
 <input type="text" id="chatInput" placeholder="Répondez ici...">
@@ -100,29 +99,29 @@ nav{background:white;padding:15px 5%;display:flex;justify-content:space-between;
 </div>
 
 <script>
-let userName='',currentModule=0,paymentReceived=false,responses={};
+let userName="",currentModule=0,paymentReceived=false,responses={};
 const moduleDetails={
-'M1':{'nom':'Stratégie & Écosystème IA','tarif':'15 000 FCFA','desc':'Comprendre où l\'argent se cache dans l\'IA.'},
-'M2':{'nom':'Maîtrise des LLM','tarif':'15 000 FCFA','desc':'Dompter ChatGPT et Claude comme des pros.'},
-'M3':{'nom':'Prompt Engineering Expert','tarif':'25 000 FCFA','desc':'Le langage de commande pour 0 erreur.'},
-'M4':{'nom':'Design & Image Générative','tarif':'25 000 FCFA','desc':'Économiser sur vos frais d\'agence créative.'},
-'M5':{'nom':'Appels d\'Offres (DAO)','tarif':'75 000 FCFA','desc':'Le levier n°1 pour gagner des marchés.'},
-'M6':{'nom':'Création de Sites Web No-Code','tarif':'35 000 FCFA','desc':'Votre vitrine pro prête en une après-midi.'},
-'M7':{'nom':'Automatisation WhatsApp & SAV','tarif':'35 000 FCFA','desc':'Vendre et répondre 24h/24 sans humain.'},
-'M8':{'nom':'Logique Agentic','tarif':'40 000 FCFA','desc':'Passer de l\'assistant à l\'agent autonome.'},
-'M9':{'nom':'Création d\'Agents IA','tarif':'85 000 FCFA','desc':'Votre armée d\'employés virtuels.'},
-'M10':{'nom':'Projet Final & Diplôme','tarif':'25 000 FCFA','desc':'Validation et reconnaissance officielle.'}
+"1":"Module 1 : Stratégie & Écosystème IA - 15 000 FCFA\nComprendre où l'argent se cache dans l'IA.",
+"2":"Module 2 : Maîtrise des LLM - 15 000 FCFA\nDompter ChatGPT et Claude comme des pros.",
+"3":"Module 3 : Prompt Engineering Expert - 25 000 FCFA\nLe langage de commande pour 0 erreur.",
+"4":"Module 4 : Design & Image Générative - 25 000 FCFA\nÉconomiser sur vos frais d'agence créative.",
+"5":"Module 5 : Appels d'Offres (DAO) - 75 000 FCFA\nLe levier n°1 pour gagner des marchés.",
+"6":"Module 6 : Création de Sites Web No-Code - 35 000 FCFA\nVotre vitrine pro prête en une après-midi.",
+"7":"Module 7 : Automatisation WhatsApp & SAV - 35 000 FCFA\nVendre et répondre 24h/24 sans humain.",
+"8":"Module 8 : Logique Agentic - 40 000 FCFA\nPasser de l'assistant à l'agent autonome.",
+"9":"Module 9 : Création d'Agents IA - 85 000 FCFA\nVotre armée d'employés virtuels.",
+"10":"Module 10 : Projet Final & Diplôme - 25 000 FCFA\nValidation et reconnaissance officielle."
 };
 
 function showSection(id){document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
-function selectPlan(plan,price){document.getElementById('planLabel').innerText='Pack '+plan;showSection('register');}
+function selectPlan(plan,price){document.getElementById('planLabel').innerText="Pack "+plan;showSection('register');}
 
 document.getElementById('regForm').onsubmit=function(e){
 e.preventDefault();
 userName=document.getElementById('uName').value;
-document.getElementById('welcomeUser').innerText='Expert : '+userName;
+document.getElementById('welcomeUser').innerText="Expert : "+userName;
 showSection('dashboard');
-addMsg('Parfait '+userName+' ! Votre inscription est notée. Envoyez votre reçu Wave/OM pour débloquer l\'accès aux modules.');
+addMsg("Parfait "+userName+" ! Votre inscription est notée. Envoyez votre reçu Wave/OM pour débloquer l'accès aux modules.");
 };
 
 function addMsg(txt,type='ai'){
@@ -136,52 +135,54 @@ document.getElementById('chatBox').scrollTop=9999;
 function handleChat(){
 let input=document.getElementById('chatInput'),val=input.value.trim();
 if(!val)return;
-addMsg(val,'user');
-input.value='';
+addMsg(input.value,'user');
+input.value="";
 setTimeout(()=>{
-let l=val.toUpperCase().replace(/\s/g,'');
-if(l.match(/(STARTER|45000)/)){paymentReceived=true;addMsg('✅ Paiement Starter confirmé. Tapez le module pour commencer.');return;}
-if(l.match(/(EXPERT|150000)/)){paymentReceived=true;addMsg('✅ Paiement Expert confirmé. Tapez le module pour commencer.');return;}
-if(moduleDetails[l]){
-if(paymentReceived){
-showModule(l);
-}else{
-addMsg('Veuillez d\'abord effectuer votre paiement.');
-}
-return;
-}
-addMsg('Je n\'ai pas compris. Tapez le numéro du module (M1–M10) ou son nom exact.');
+let l=val.toLowerCase().replace(/\s/g,'');
+if(l.match(/(45000|starter)/)){paymentReceived=true;addMsg("✅ Paiement Starter confirmé. Tapez 'programme' pour commencer vos modules.");return;}
+if(l.match(/(150000|expert)/)){paymentReceived=true;addMsg("✅ Paiement Expert confirmé. Tapez 'programme' pour commencer vos modules.");return;}
+if(l.match(/^[1-9]$|^10$/)){
+const num=parseInt(l);
+if(paymentReceived){showModule(num);}else{addMsg("Veuillez d'abord effectuer votre paiement.");}return;}
+if(l.includes("programme")||l.includes("module")){
+if(paymentReceived){currentModule=1;showModule(currentModule);}else{addMsg("Veuillez effectuer votre paiement pour accéder aux modules.");}return;}
+if(l.includes("tarif")||l.includes("prix")||l.includes("payer")||l.includes("combien")){
+let tarifs="";
+for(let i=1;i<=10;i++){tarifs+=moduleDetails[i]+"\n\n";}
+addMsg("Voici les tarifs et contenus des 10 modules :\n\n"+tarifs);return;}
+if(l.includes("certificat")){generatePDFCertificate();return;}
+addMsg("Je n'ai pas compris. Tapez 'programme' ou 'tarif'.");
 },500);
 }
 
-function showModule(code){
-currentModule=code;
-let m=moduleDetails[code];
-addMsg(code+' – '+m.nom+' | Tarif : '+m.tarif+'\n'+m.desc);
-responses[code]=responses[code]||'';
-addMsg('Envoyez votre réponse ou tapez le module suivant.');
+function showModule(num){
+currentModule=num;
+addMsg(moduleDetails[num]);
+responses[num]=responses[num]||"";
+addMsg(`📊 Progression : Module ${num}/10`);
+addMsg("Envoyez votre réponse ou tapez 'suivant' pour passer au module suivant.");
 }
 
 function generatePDFCertificate(){
-if(Object.keys(responses).length<10){addMsg('Vous devez terminer les 10 modules avant de générer le certificat.');return;}
+if(currentModule<10){addMsg("Vous devez terminer les 10 modules avant de générer le certificat.");return;}
 const { jsPDF } = window.jspdf;
 const doc = new jsPDF();
 doc.setFontSize(24); doc.setTextColor(0,133,63);
-doc.text('🎓 Certificat d\'Expertise IA',105,30,null,null,'center');
-doc.setFontSize(20); doc.text(userName,105,50,null,null,'center');
-doc.setFontSize(14); doc.text('A complété avec succès les 10 modules de formation AIA SÉNÉGAL.',105,65,null,null,'center');
-let y=85;
+doc.text("🎓 Certificat d'Expertise IA",105,30,null,null,"center");
+doc.setFontSize(20); doc.text(userName,105,50,null,null,"center");
+doc.setFontSize(14); doc.text("A complété avec succès les 10 modules de formation AIA SÉNÉGAL.",105,65,null,null,"center");
+doc.text("Détail des réponses :",20,85);
+let y=95;
 Object.keys(responses).forEach(m=>{
-let lines=doc.splitTextToSize(m+': '+responses[m],170);
+let lines=doc.splitTextToSize(`Module ${m}: ${responses[m]}`,170);
 doc.text(lines,20,y);
 y+=lines.length*7;
 });
-doc.text('Félicitations et bienvenue dans la communauté des Experts AIA SÉNÉGAL !',105,y+20,null,null,'center');
-doc.save(userName+'_Certificat_AIA.pdf');
-addMsg('✅ Certificat PDF généré et téléchargé !');
+doc.text("Félicitations et bienvenue dans la communauté des Experts AIA SÉNÉGAL !",105,y+20,null,null,"center");
+doc.save(`${userName}_Certificat_AIA.pdf`);
+addMsg("✅ Certificat PDF généré et téléchargé !");
 document.getElementById('downloadCertBtn').style.display='none';
 }
 </script>
-
 </body>
 </html>
