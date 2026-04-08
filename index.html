@@ -33,7 +33,6 @@
         .msg-user { background: var(--primary); align-self: flex-end; color: white; }
         .chat-footer { padding: 12px; border-top: 1px solid #eee; display: flex; gap: 8px; background: white; align-items: center; }
         .chat-footer input { flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
-        .wa-btn { display: block; background: #25d366; color: white; padding: 10px; text-align: center; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -164,7 +163,6 @@
 
         setTimeout(() => {
             if(val.includes("momar ba") || val.includes("directeur")) {
-                document.querySelector('.chat-header').style.background = "#000";
                 addMsg("Respects Monsieur le Directeur. Tout est opérationnel pour AIA SÉNÉGAL.");
                 return;
             }
