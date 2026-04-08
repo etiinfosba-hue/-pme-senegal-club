@@ -1,70 +1,11 @@
-<!DOCTYPE html>
-
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIA SÉNÉGAL | Académie d'Élite</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<style>
-:root{--primary:#00853f;--dark:#0f172a;--gold:#c5a021;--light:#f8fafc;--wave:#1da1f2;}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background-color:var(--light);color:var(--dark);line-height:1.6;}
-nav{background:white;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 15px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;}
-.logo{font-weight:900;font-size:1.5rem;color:var(--primary);text-decoration:none;text-transform:uppercase;cursor:pointer;}
-.logo span{color:var(--gold);}
-.page-section{display:none;padding:50px 5%;min-height:90vh;}
-.page-section.active{display:block;animation:fadeIn 0.4s ease-in;}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-.hero{text-align:center;padding:80px 20px;background:linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.9)), url('assets/images/hero.jpg') center/cover;color:white;border-radius:0 0 40px 40px;}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:30px;}
-.price-card{background:white;padding:35px;border-radius:20px;text-align:center;border:1px solid #e2e8f0;}
-.price-card.featured{border:3px solid var(--gold);transform:scale(1.02);}
-.amount{font-size:2.2rem;font-weight:900;color:var(--primary);margin:15px 0;}
-.btn{padding:16px 25px;border-radius:12px;font-weight:800;cursor:pointer;border:none;text-transform:uppercase;text-decoration:none;width:100%;display:block;}
-.btn-primary{background:var(--primary);color:white;}
-.btn-gold{background:var(--gold);color:white;}
-#chat-widget{position:fixed;bottom:20px;right:20px;width:400px;background:white;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,0.2);z-index:9999;overflow:hidden;border:1px solid #e2e8f0;}
-.chat-header{background:var(--dark);color:white;padding:15px;font-weight:700;border-bottom:3px solid var(--gold);display:flex;justify-content:space-between;}
-.chat-body{height:400px;padding:20px;overflow-y:auto;background:#fcfcfc;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;}
-.chat-msg{padding:12px 16px;border-radius:15px;font-size:0.88rem;line-height:1.5;white-space:pre-line;max-width:90%;}
-.msg-ai{background:#f1f5f9;align-self:flex-start;border-left:4px solid var(--gold);color:#1e293b;}
-.msg-user{background:var(--primary);align-self:flex-end;color:white;}
-.chat-footer{padding:12px;border-top:1px solid #eee;display:flex;gap:8px;background:white;}
-.chat-footer input{flex-grow:1;padding:10px;border:1px solid #ddd;border-radius:8px;outline:none;}
-</style>
-</head>
-<body>
-
-<nav>
-<div class="logo" onclick="showSection('landing')">AIA <span>SÉNÉGAL</span></div>
-<button onclick="showSection('pricing')" class="btn btn-primary" style="width:auto;padding:10px 20px;">Offres</button>
-</nav>
-
-<section id="landing" class="page-section active">
-<div class="hero">
-<h1 style="font-size:2.5rem;font-weight:900;">L'IA sans code par AIA SÉNÉGAL</h1>
-<p style="margin:20px 0;color:#cbd5e1;">Zéro Code. Outils Gratuits (Groq & Sheets). Sous la supervision de AIA SÉNÉGAL.</p>
-<button onclick="showSection('pricing')" class="btn btn-gold" style="width:auto;margin:auto;">Démarrer ma formation</button>
-</div>
-</section>
-
-<section id="pricing" class="page-section">
-<h2 style="text-align:center;font-weight:900;margin-bottom:30px;">Nos Offres de Formation</h2>
-<div class="pricing-grid">
-<div class="price-card">
-<h3>Pack Starter</h3>
-<div class="amount">45.000 FCFA</div>
-<button onclick="selectPlan('Starter', '45.000 FCFA')" class="btn btn-primary">S'inscrire</button>
-</div>
-<div class="price-card featured">
-<h3>Expert Business DAO</h3>
-<div class="amount">150.000 FCFA</div>
-<button onclick="selectPlan('Business DAO', '150.000 FCFA')" class="btn btn-gold">Devenir Expert</button>
-</div>
-</div>
-</section>
-
-<section id="register" class="page-section">
-<div style="max-width:400px;margin:auto;background:white;paddi
+AIA-SENEGAL-FINAL/
+│
+├─ index.html            ← HTML final avec chat et modules
+├─ assets/
+│   ├─ images/
+│   │   ├─ hero.jpg       ← Image de la landing page
+│   │   └─ logo.png       ← Logo AIA SÉNÉGAL
+│   └─ css/              ← Styles séparés (optionnel)
+│   └─ js/               ← Scripts séparés (optionnel)
+├─ README.txt            ← Instructions de déploiement et paiement
+└─ chat_screenshot.png   ← Capture du chat Mame Yo Cissé
